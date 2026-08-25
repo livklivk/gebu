@@ -50,6 +50,7 @@ fetch('posts.json')
 }
 
     stapel.classList.add('versteckt');
+    history.pushState({ ansicht: 'brief' }, '');
     leseansicht.classList.add('aktiv');
     brief.classList.remove('oeffnend');
   }, 600);
@@ -82,13 +83,13 @@ fetch('posts.json')
       }
 
       stapel.classList.add('versteckt');
+      history.pushState({ ansicht: 'brief' }, '');
       leseansicht.classList.add('aktiv');
     });
   });
 
 zurueckBtn.addEventListener('click', function () {
-  stapel.classList.remove('versteckt');
-  leseansicht.classList.remove('aktiv');
+  history.back();
 });
 
 const tageZahlElement = document.getElementById('tage-zahl');
@@ -98,3 +99,8 @@ const millisekundenProTag = 1000 * 60 * 60 * 24;
 const vergangeneTage = Math.floor((heute - abflugDatum) / millisekundenProTag);
 
 tageZahlElement.textContent = vergangeneTage;
+
+window.addEventListener('popstate', function () {
+  stapel.classList.remove('versteckt');
+  leseansicht.classList.remove('aktiv');
+});
