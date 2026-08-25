@@ -104,3 +104,10 @@ window.addEventListener('popstate', function () {
   stapel.classList.remove('versteckt');
   leseansicht.classList.remove('aktiv');
 });
+
+document.body.addEventListener('touchstart', function () {
+  const video = document.querySelector('.hintergrund-video');
+  if (video && video.paused) {
+    video.play();
+  }
+}, { once: true });
