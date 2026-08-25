@@ -1,0 +1,429 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --paper: #f6ecd9;
+    --paper-soft: #fffdf6;
+    --ink: #26314b;
+    --ink-soft: #5a6480;
+    --accent: #c1443c;
+    --accent-soft: rgba(193, 68, 60, 0.12);
+    --gold: #b98a2e;
+    --line: #e3d3ab;
+    --shadow-color: 43, 58, 85;
+    --airmail: repeating-linear-gradient(
+        -45deg,
+        var(--accent) 0 10px,
+        var(--paper-soft) 10px 20px,
+        var(--ink) 20px 30px,
+        var(--paper-soft) 30px 40px
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--paper);
+    background-image: radial-gradient(circle at 1px 1px, rgba(43, 58, 85, 0.07) 1px, transparent 0);
+    background-size: 24px 24px;
+    font-family: 'Vollkorn', serif;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: clamp(32px, 8vw, 70px) 20px 90px;
+}
+
+h1 {
+    font-family: 'Special Elite', monospace;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 36px auto;
+    text-align: center;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(var(--shadow-color), 0.25);
+}
+
+.hintergrund-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(24, 30, 46, 0.15) 0%, rgba(24, 30, 46, 0.45) 100%);
+    pointer-events: none;
+}
+
+.haupttitel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-2deg);
+    z-index: 1;
+    display: inline-block;
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    letter-spacing: 3px;
+    background-color: var(--paper-soft);
+    border-width: 7px;
+    border-style: solid;
+    border-image: var(--airmail) 7;
+    padding: 14px 32px;
+    border-radius: 3px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- Tage-Zaehler (Boarding-Pass) ---------- */
+
+.tage-zaehler {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 36px auto;
+    text-align: center;
+    background-color: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 20px 24px;
+    box-shadow: 0 6px 18px rgba(var(--shadow-color), 0.12);
+    overflow: hidden;
+}
+
+.tage-zaehler::before,
+.tage-zaehler::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    width: 4px;
+    background-image: radial-gradient(circle, transparent 0, transparent 5px, var(--paper) 5px);
+    background-size: 100% 16px;
+    background-repeat: repeat-y;
+}
+
+.tage-zaehler::before { left: 0; }
+.tage-zaehler::after { right: 0; }
+
+.tage-zahl {
+    display: block;
+    font-family: 'Special Elite', monospace;
+    font-size: clamp(2.4rem, 10vw, 3rem);
+    color: var(--accent);
+    line-height: 1.1;
+}
+
+.tage-label {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+/* ---------- Uebersicht Kacheln ---------- */
+
+.uebersicht {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 500px;
+    margin: 0 auto 44px auto;
+    gap: 12px;
+}
+
+.kachel {
+    background-color: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 16px 12px;
+    text-align: center;
+    font-size: 0.88rem;
+    cursor: default;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 3px 10px rgba(var(--shadow-color), 0.08);
+}
+
+.kachel-beitrag,
+.kachel-recently {
+    cursor: pointer;
+}
+
+.kachel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 22px rgba(var(--shadow-color), 0.2);
+}
+
+.kachel-icon {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+}
+
+.kachel-recently img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    box-shadow: 0 3px 8px rgba(var(--shadow-color), 0.2);
+}
+
+.kachel-titel {
+    display: inline-block;
+    text-transform: uppercase;
+    color: var(--ink);
+    background-color: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.68rem;
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+
+.kachel-vorschau-titel {
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+/* ---------- Briefstapel ---------- */
+
+.briefstapel {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    counter-reset: brief;
+    padding-bottom: 90px;
+}
+
+.letter {
+    counter-increment: brief;
+    position: relative;
+    background-color: var(--paper-soft);
+    background-image: linear-gradient(rgba(43, 58, 85, 0.05) 1px, transparent 1px);
+    background-size: 100% 28px;
+    background-position: 0 60px;
+    border-width: 7px;
+    border-style: solid;
+    border-image: var(--airmail) 7;
+    border-radius: 4px;
+    box-shadow: 0 6px 16px rgba(var(--shadow-color), 0.16);
+    padding: 50px 22px 20px 22px;
+    margin-bottom: -96px;
+    min-height: 170px;
+    transform: rotate(var(--rot, -2deg));
+    transition: transform 0.35s cubic-bezier(.2, .8, .3, 1), box-shadow 0.35s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.letter::before {
+    content: 'Brief N\00B0 ' counter(brief, decimal-leading-zero);
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-family: 'Special Elite', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    color: var(--ink-soft);
+    opacity: 0.6;
+}
+
+.letter:hover {
+    transform: translateY(-44px) rotate(0deg);
+    box-shadow: 0 16px 28px rgba(var(--shadow-color), 0.28);
+    z-index: 2;
+}
+
+.datum {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.82rem;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.titel {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.brief-bild {
+    border-radius: 4px;
+    margin: 10px 0;
+    display: block;
+    object-fit: cover;
+}
+
+.letter .brief-bild {
+    width: 52px;
+    height: 52px;
+    max-height: none;
+    border-radius: 6px;
+    float: right;
+    margin: 0 0 10px 12px;
+    box-shadow: 0 3px 8px rgba(var(--shadow-color), 0.25);
+}
+
+.inhalt {
+    display: none;
+}
+
+#stapel.versteckt {
+    display: none;
+}
+
+/* ---------- Leseansicht ---------- */
+
+.leseansicht {
+    display: none;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 10px 28px rgba(var(--shadow-color), 0.2);
+    padding: 30px 28px 34px;
+}
+
+.leseansicht .datum {
+    font-size: 0.85rem;
+}
+
+.leseansicht .titel {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.leseansicht .brief-bild {
+    width: 100%;
+    max-height: 280px;
+    box-shadow: 0 6px 16px rgba(var(--shadow-color), 0.22);
+}
+
+.leseansicht .inhalt {
+    display: block;
+    margin-top: 16px;
+    line-height: 1.75;
+    font-size: 1.02rem;
+}
+
+.leseansicht .inhalt p + p {
+    margin-top: 1em;
+}
+
+.zurueck {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 22px;
+    background: none;
+    border: none;
+    font-family: 'Special Elite', monospace;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    padding: 6px 4px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.zurueck:hover {
+    transform: translateX(-4px);
+    opacity: 0.75;
+}
+
+/* ---------- Animationen ---------- */
+
+@keyframes brief-oeffnen {
+    0% {
+        transform: rotate(var(--rot, -2deg)) scale(1);
+    }
+    50% {
+        transform: rotate(0deg) scale(1.15);
+    }
+    100% {
+        transform: rotate(0deg) scale(1.4);
+        opacity: 0;
+    }
+}
+
+.letter.oeffnend {
+    animation: brief-oeffnen 0.6s ease forwards;
+    z-index: 50;
+}
+
+@keyframes leseansicht-einblenden {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.leseansicht.aktiv {
+    display: block;
+    animation: leseansicht-einblenden 0.45s ease forwards;
+}
+
+@keyframes brief-einblenden {
+    from {
+        opacity: 0;
+        transform: translateY(16px) rotate(var(--rot, -2deg));
+    }
+    to {
+        opacity: 1;
+        transform: rotate(var(--rot, -2deg));
+    }
+}
+
+.letter {
+    animation: brief-einblenden 0.5s ease backwards;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 420px) {
+    .uebersicht {
+        gap: 8px;
+    }
+
+    .kachel {
+        padding: 12px 8px;
+        font-size: 0.8rem;
+    }
+
+    .kachel-titel {
+        font-size: 0.56rem;
+        padding: 3px 7px;
+    }
+}

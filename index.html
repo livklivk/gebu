@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Updates für Philipp :)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Vollkorn:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✉️</text></svg>">
+</head>
+<body>
+    <header class="hero">
+        <video class="hintergrund-video" autoplay muted playsinline preload="auto">
+            <source src="bilder/hintergrund_video.mp4" type="video/mp4">
+        </video>
+        <h1 class="haupttitel">updates ❤</h1>
+    </header>
+ 
+    <div class="tage-zaehler" id="tage-zaehler">
+        <span class="tage-zahl" id="tage-zahl">0</span>
+        <span class="tage-label">Tage geschafft</span>
+    </div>
+
+    <div class="uebersicht">
+        <div class="kachel kachel-notiz">
+            <span class="kachel-icon">📝</span>
+            <h2 class="kachel-titel">Notizblock</h2>
+            <p>hallo hallo</p>
+        </div>
+        <div class="kachel kachel-beitrag">
+            <span class="kachel-icon">✉️</span>
+            <h2 class="kachel-titel">Neuster Beitrag</h2>
+        </div>
+        <div class="kachel kachel-recently">
+            <span class="kachel-icon">🎵</span>
+            <h2 class="kachel-titel">Recently</h2>
+            <img src="" alt="">
+            <p></p>
+        </div>
+    </div>
+
+
+    <div class="briefstapel" id="stapel"></div>
+
+    <div class="leseansicht" id="leseansicht">
+        <button class="zurueck" id="zurueck-btn">← Zurück zum Stapel</button>
+        <span class="datum" id="lese-datum"></span>
+        <h2 class="titel" id="lese-titel"></h2>
+        <img id="lese-bild" class="brief-bild" alt="">
+        <p class="inhalt" id="lese-inhalt"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+[
+  {
+    "datum": "22. August",
+    "titel": "Website erstellt",
+    "inhalt": "Heute Website erstellt hihi\n\nabc",
+    "bilder": []  
+  },  
+  {
+    "datum": "04. September",
+    "titel": "Flug nach Japan & Wiedersehen",
+    "inhalt": "Dein Text hier.",
+    "bilder": []  
+  },
+  {
+    "datum": "06. September",
+    "titel": "Samurai & Ninja Museum",
+    "inhalt": "Dein Text hier.",
+    "bilder": []
+  },
+  {
+    "datum": "08. September",
+    "titel": "Pixar Experience",
+    "inhalt": "Dein Text hier.",
+    "bilder": []
+  },
+  {
+    "datum": "10. September",
+    "titel": "teamLab Planets",
+    "inhalt": "Dein Text hier.",
+    "bilder": []
+  },
+  {
+    "datum": "16. September",
+    "titel": "teamLab Borderless",
+    "inhalt": "Dein Text hier.",
+    "bilder": []
+  },
+  {
+    "datum": "19. September",
+    "titel": "Trip nach Kyoto",
+    "inhalt": "Dein Text hier.",
+    "bilder": []
+  },
+  {
+    "datum": "04. September",
+    "titel": "Als erstes lesen!",
+    "inhalt": "Dein Text hier.",
+    "bilder": ["bilder/bild_1.JPG"]  
+  }
+]
