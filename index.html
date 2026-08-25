@@ -9,7 +9,29 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✉️</text></svg>">
 </head>
-<body>
+<body class="intro-active">
+    <div id="intro-overlay" class="intro-overlay">
+        <div class="package-scene">
+            <div class="package" id="package" role="button" aria-label="Geschenk öffnen" tabindex="0">
+                <div class="package-paper package-paper-left"></div>
+                <div class="package-paper package-paper-right"></div>
+                <div class="package-ribbon-h"></div>
+                <div class="package-ribbon-v"></div>
+                <div class="package-seal">
+                    <div class="seal-inner">
+                        <img src="bilder/FC_Schalke_04_Logo.svg.png" alt="FC Schalke 04" class="seal-logo">
+                    </div>
+                </div>
+                <div class="gift-tag">
+                    <span class="gift-tag-to">Für</span>
+                    <span class="gift-tag-name">Philipp ❤</span>
+                    <span class="gift-tag-hint">Tippe zum Öffnen 🎁</span>
+                </div>
+            </div>
+            <button class="skip-intro" id="skip-intro" type="button">Intro überspringen →</button>
+        </div>
+    </div>
+
     <header class="hero">
         <video class="hintergrund-video" autoplay muted playsinline preload="auto">
             <source src="bilder/hintergrund_video.mp4" type="video/mp4">
