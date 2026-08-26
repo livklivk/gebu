@@ -11,23 +11,30 @@
 </head>
 <body class="intro-active">
     <div id="intro-overlay" class="intro-overlay">
-        <div class="package-scene">
-            <div class="package" id="package" role="button" aria-label="Geschenk öffnen" tabindex="0">
-                <div class="package-paper package-paper-left"></div>
-                <div class="package-paper package-paper-right"></div>
-                <div class="package-ribbon-h"></div>
-                <div class="package-ribbon-v"></div>
-                <div class="package-seal">
-                    <div class="seal-inner">
-                        <img src="bilder/FC_Schalke_04_Logo.svg.png" alt="FC Schalke 04" class="seal-logo">
+        <div class="scratch-scene">
+            <div class="scratch-card" id="scratch-card">
+                <!-- Underneath content (The Revealed Gift) -->
+                <div class="scratch-underlayer">
+                    <div class="revealed-seal">
+                        <img src="bilder/FC_Schalke_04_Logo.svg.png" alt="FC Schalke 04" class="revealed-logo">
+                    </div>
+                    <div class="revealed-message">
+                        <span class="revealed-to">Für</span>
+                        <h2 class="revealed-name">Philipp ❤</h2>
+                        <p class="revealed-wish">Alles Gute zum Geburtstag!</p>
                     </div>
                 </div>
-                <div class="gift-tag">
-                    <span class="gift-tag-to">Für</span>
-                    <span class="gift-tag-name">Philipp ❤</span>
-                    <span class="gift-tag-hint">Tippe zum Öffnen 🎁</span>
-                </div>
+
+                <!-- Scratch Canvas (The Wrapping Paper on Top) -->
+                <canvas id="scratch-canvas" class="scratch-canvas"></canvas>
             </div>
+
+            <!-- Hint & Progress -->
+            <div class="scratch-hint" id="scratch-hint">
+                <span class="hint-icon">🪙</span>
+                <span class="hint-text" id="hint-text">Rubbel das Geschenk frei!</span>
+            </div>
+
             <button class="skip-intro" id="skip-intro" type="button">Intro überspringen →</button>
         </div>
     </div>
